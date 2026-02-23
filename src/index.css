@@ -2,78 +2,36 @@
 @tailwind components;
 @tailwind utilities;
 
-@layer base {
-  * { box-sizing: border-box; }
-  body {
-    font-family: 'Inter', system-ui, sans-serif;
-    -webkit-font-smoothing: antialiased;
-    background-color: #f8fafc;
-    color: #0f172a;
-  }
-  ::-webkit-scrollbar { width: 6px; height: 6px; }
-  ::-webkit-scrollbar-track { background: #f1f5f9; }
-  ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 10px; }
-  ::-webkit-scrollbar-thumb:hover { background: #94a3b8; }
+* {
+  box-sizing: border-box;
 }
 
-@layer components {
-  .btn-primary {
-    @apply inline-flex items-center justify-center gap-2 px-5 py-2.5 bg-blue-600 text-white font-semibold rounded-xl hover:bg-blue-700 active:scale-[0.98] transition-all duration-150 shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 disabled:opacity-60 disabled:cursor-not-allowed;
-  }
-  .btn-secondary {
-    @apply inline-flex items-center justify-center gap-2 px-5 py-2.5 bg-white text-gray-700 font-semibold rounded-xl border border-gray-200 hover:bg-gray-50 active:scale-[0.98] transition-all duration-150 shadow-sm focus:outline-none focus:ring-2 focus:ring-gray-300 focus:ring-offset-2;
-  }
-  .btn-danger {
-    @apply inline-flex items-center justify-center gap-2 px-5 py-2.5 bg-red-600 text-white font-semibold rounded-xl hover:bg-red-700 active:scale-[0.98] transition-all duration-150 shadow-sm;
-  }
-  .card {
-    @apply bg-white rounded-2xl shadow-card border border-gray-100 p-6;
-  }
-  .form-label {
-    @apply block text-sm font-semibold text-gray-700 mb-1.5;
-  }
-  .form-input {
-    @apply w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-xl text-gray-900 text-sm placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent focus:bg-white transition-all duration-150;
-  }
-  .form-select {
-    @apply w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-xl text-gray-900 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent focus:bg-white transition-all duration-150 cursor-pointer;
-  }
-  .badge {
-    @apply inline-flex items-center px-2.5 py-1 rounded-lg text-xs font-semibold;
-  }
-  .table-row-hover {
-    @apply hover:bg-blue-50/40 transition-colors duration-100;
-  }
-  .page-header {
-    @apply flex items-center justify-between mb-8;
-  }
-  .page-title {
-    @apply text-2xl font-bold text-gray-900;
-  }
-  .page-subtitle {
-    @apply text-sm text-gray-500 mt-0.5;
-  }
-  .stat-card {
-    @apply card flex items-center gap-4 hover:shadow-card-hover transition-shadow duration-200;
-  }
-  .stat-icon {
-    @apply flex-shrink-0 w-14 h-14 rounded-2xl flex items-center justify-center;
-  }
-  .nav-link {
-    @apply flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-medium transition-all duration-150 group;
-  }
-  .nav-link-active {
-    @apply bg-blue-600 text-white shadow-sm;
-  }
-  .nav-link-inactive {
-    @apply text-slate-600 hover:bg-blue-50 hover:text-blue-700;
-  }
+body {
+  font-family: 'Inter', system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  background-color: #f8fafc;
+  color: #0f172a;
 }
 
-/* Print styles for invoices */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f5f9;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 10px;
+}
+
 @media print {
-  .no-print { display: none !important; }
-  .print-only { display: block !important; }
-  body { background: white; }
-  .card { box-shadow: none; border: 1px solid #e2e8f0; }
+  .no-print {
+    display: none !important;
+  }
+  body {
+    background: white;
+  }
 }
