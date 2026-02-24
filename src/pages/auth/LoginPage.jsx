@@ -11,24 +11,6 @@ export default function LoginPage() {
 
   if (user) return <Navigate to="/dashboard" replace />;
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    setError('');
-    const result = await login(form.email, form.password);
-    if (result.success) navigate('/dashboard');
-    else setError(result.message);
-  };
-
-  const fillDemo = (role) => {
-    const creds = {
-      admin: { email: 'admin@hms.com', password: 'admin123' },
-      doctor: { email: 'doctor@hms.com', password: 'doctor123' },
-      receptionist: { email: 'receptionist@hms.com', password: 'recep123' },
-    };
-    setForm(creds[role]);
-    setError('');
-  };
-
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-900 via-blue-950 to-slate-900 flex items-center justify-center p-4">
       {/* Background decorative elements */}
@@ -53,31 +35,6 @@ export default function LoginPage() {
         <div className="bg-white/95 backdrop-blur rounded-3xl shadow-2xl p-8">
           <h2 className="text-xl font-bold text-gray-900 mb-1">Welcome back</h2>
           <p className="text-gray-500 text-sm mb-6">Sign in to your account to continue</p>
-
-          {/* Demo credentials */}
-          <div className="mb-6 p-4 bg-blue-50 rounded-2xl border border-blue-100">
-            <p className="text-xs font-semibold text-blue-700 mb-2 uppercase tracking-wide">Quick Demo Login</p>
-            <div className="flex gap-2 flex-wrap">
-              {['admin', 'doctor', 'receptionist'].map(role => (
-                <button
-                  key={role}
-                  onClick={() => fillDemo(role)}
-                  className="px-3 py-1.5 bg-white border border-blue-200 rounded-lg text-xs font-semibold text-blue-700 hover:bg-blue-600 hover:text-white hover:border-blue-600 transition-all capitalize"
-                >
-                  {role === 'receptionist' ? 'Recept.' : role.charAt(0).toUpperCase() + role.slice(1)}
-                </button>
-              ))}
-            </div>
-          </div>
-
-          {error && (
-            <div className="mb-4 p-4 bg-red-50 border border-red-200 rounded-xl text-red-700 text-sm font-medium flex items-center gap-2">
-              <svg className="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-              </svg>
-              {error}
-            </div>
-          )}
 
           <form onSubmit={handleSubmit} className="space-y-4">
             <div>
